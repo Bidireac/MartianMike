@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu3nulpnp6at5"]
+
+[ext_resource type="PackedScene" uid="uid://b8gycyf37xxl8" path="res://scenes/bg.tscn" id="1_o6unw"]
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_okgji"]
+[ext_resource type="FontFile" uid="uid://c6l2ktjakcuyu" path="res://assets/fonts/Kenney Pixel Square.ttf" id="3_6eie7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_70wm5"]
+font = ExtResource("3_6eie7")
+font_size = 40
+font_color = Color(0.85098, 0, 1, 1)
+outline_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_okgji")
+
+[node name="BG" parent="." instance=ExtResource("1_o6unw")]
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -97.0
+offset_right = 169.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MARTIAN MIKE"
+label_settings = SubResource("LabelSettings_70wm5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -20.0
+offset_right = 70.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_6eie7")
+theme_override_font_sizes/font_size = 20
+text = "START"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = 38.0
+offset_right = 43.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_6eie7")
+theme_override_font_sizes/font_size = 15
+text = "QUIT"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
